@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
@@ -39,12 +40,11 @@ section {
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
 .pokemon-card {
+  background-color: rgb(168, 168, 168);
   border-radius: 10px;
   border: 1px solid black;
   width: 150px;
@@ -64,6 +64,45 @@ section {
   cursor: pointer;
 }
 
+#pokemonContainer {
+  background-color: rgb(168, 168, 168);
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+#pokemonContainer p {
+  font-size: 1.3rem;
+}
+
+#pokemonContainer h3 {
+  font-size: 2rem;
+}
+
+.spriteImg {
+  width: 150px;
+}
+
+.pokemonTypes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pokemonTypes img {
+  width: 70px;
+}
+
+.pokemonData {
+  margin-bottom: 10px;
+}
+
+.pokemonWH {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
   section {
     flex-direction: column;
@@ -71,5 +110,9 @@ section {
   .pokemon,
   .pokemons {
     width: 100%;
+  }
+  #pokemonContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
