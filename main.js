@@ -4,6 +4,30 @@ const pokemonImg =
 
 const pokemonInfo = 'https://pokeapi.co/api/v2/pokemon-form/1/';
 // .types -> me devuelve el tipo del pokemon
+
+const typesColor = {
+  bug: '#a8b820',
+  dark: '#705848',
+  dragon: '#7038f8',
+  electric: '#f8d030',
+  fairy: '#f8a0e0',
+  fighting: '#903028',
+  fire: '#f05030',
+  flying: '#a890f0',
+  ghost: '#705898',
+  grass: '#78c850',
+  ground: '#e0c068',
+  ice: '#98d8d8',
+  normal: '#a8a878',
+  poison: '#a040a0',
+  psychic: '#f85888',
+  rock: '#b8a038',
+  shadow: '#403246',
+  steel: '#b8b8d0',
+  unknown: '#68a090',
+  water: '#6890f0',
+};
+
 const typesImgs = 'https://veekun.com/dex/media/types/en/bug.png';
 //imagenes de los tipos
 let actualPokemon = '';
@@ -46,7 +70,9 @@ async function setPokemon(data) {
   for (const stat of stats) {
     statsHTML += `<p>${stat.stat.name}: ${stat.base_stat}</p>`;
   }
-
+  let bgColor = types[0];
+  bgColor = typesColor[bgColor];
+  document.body.style.backgroundColor = bgColor;
   let pokemonContainer = `
   <div id="pokemonContainer">
     <h2>${name}</h2>
@@ -67,10 +93,7 @@ async function setPokemon(data) {
     </div>
   </div>
   `;
-  //stats[0].base_stat  stats[0].stat.name
-  console.log(stats[0].base_stat, stats[0].stat.name);
   container.innerHTML = pokemonContainer;
-  //arma la info del pokemon seleccionado
 }
 
 function clearPokemonInfo() {
