@@ -125,9 +125,35 @@ function setOnClicks() {
       if (actualPokemon != pokemon) {
         actualPokemon = pokemon;
         setPokemon(await getPokemon(url));
+
+        if (window.innerWidth < 601) {
+          window.scrollTo(0, document.body.scrollHeight);
+        }
       }
     });
   }
 }
 clearPokemonInfo();
 makePokedex();
+
+let button = document.getElementById('boton');
+
+button.addEventListener('click', () => {
+  topFunction();
+});
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    button.style.display = 'block';
+  } else {
+    button.style.display = 'none';
+  }
+}
+
+function topFunction() {
+  document.documentElement.scrollTop = 0;
+}
